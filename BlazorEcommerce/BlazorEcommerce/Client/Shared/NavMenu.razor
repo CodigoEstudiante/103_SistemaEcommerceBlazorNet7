@@ -1,0 +1,133 @@
+﻿@inject ICarritoServicio carritoServicio
+@inject SweetAlertService Swal;
+@inject NavigationManager _navigationManager
+@implements IDisposable
+@using BlazorEcommerce.Client.Extensiones;
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims;
+@inject AuthenticationStateProvider autenticacionProvider
+
+@*<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">BlazorEcommerce</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            </NavLink>
+        </div>
+    </nav>
+</div>
+*@
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" runat="server" href="#">Ecommerce Demo</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <AuthorizeView Roles="Usuario">
+                    <Authorized>
+                        <li class="nav-item"><NavLink class="nav-link" href="dashboard"> Dashboard</NavLink></li>
+                        <li class="nav-item"><NavLink class="nav-link" href="usuarios"> Usuarios</NavLink></li>
+                        <li class="nav-item"><NavLink class="nav-link" href="categorias"> Categorias</NavLink></li>
+                        <li class="nav-item"><NavLink class="nav-link" href="productos"> Productos</NavLink></li>
+                    </Authorized>
+                </AuthorizeView>
+
+                <li class="nav-item"><NavLink class="nav-link" href="catalogo"> Tienda</NavLink></li>
+            </ul>
+
+            <AuthorizeView>
+                <Authorized>
+                    <span class="navbar-text me-3">
+                        @context.User.Claims.Where(c => c.Type == ClaimTypes.Email).Select(c => c.Value).SingleOrDefault()
+                    </span>
+                </Authorized>
+            </AuthorizeView>
+
+            <a class="btn btn-outline-dark ms-auto ms-md-0 me-3" href="/cart">
+                <i class="bi-cart-fill me-1"></i>
+                Cart
+                <span class="badge bg-dark text-white ms-1 rounded-pill">@mostrarCantidadCarrito()</span>
+            </a>
+            <AuthorizeView>
+                <Authorized>
+                    <button class="btn btn-outline-dark ms-auto ms-md-0 me-3" type="button" @onclick="CerrarSesion">Salir</button>
+                </Authorized>
+                <NotAuthorized>
+                    <a class="btn btn-outline-dark ms-auto ms-md-0 me-3" href="/login">Iniciar sesion</a>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+    private bool collapseMenuUser = false;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? UserMenuCssClass => collapseMenuUser ? "show" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+    private void ToggleMenuUser()
+    {
+        collapseMenuUser = !collapseMenuUser;
+    }
+
+    protected override void OnInitialized()
+    {
+        carritoServicio.ActualizarVista += StateHasChanged;
+    }
+    public void Dispose()
+    {
+        carritoServicio.ActualizarVista += StateHasChanged;
+    }
+
+    private int mostrarCantidadCarrito()
+    {
+        return carritoServicio.CantidadProductos();
+    }
+    private async Task CerrarSesion()
+    {
+        SweetAlertResult result = await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Desea salir?",
+                Icon = SweetAlertIcon.Info,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si",
+                CancelButtonText = "No"
+            });
+
+        if (result.IsConfirmed)
+        {
+            var autenticacionExt = (AutenticacionExtension)autenticacionProvider;
+            await autenticacionExt.ActualizarEstadoAutenticacion(null);
+            _navigationManager.NavigateTo("/", true);
+        }
+    }
+}

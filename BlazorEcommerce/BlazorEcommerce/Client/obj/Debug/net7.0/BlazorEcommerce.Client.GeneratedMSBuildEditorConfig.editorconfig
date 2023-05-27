@@ -1,0 +1,89 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlazorEcommerce.Client
+build_property.RootNamespace = BlazorEcommerce.Client
+build_property.ProjectDir = E:\WorkSpaceAD\YOUTUBE\103_SISTEMA ECOMMERCE BLAZOR NET 7\Subir\BlazorEcommerce\BlazorEcommerce\Client\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\WorkSpaceAD\YOUTUBE\103_SISTEMA ECOMMERCE BLAZOR NET 7\Subir\BlazorEcommerce\BlazorEcommerce\Client
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Autorizacion/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0b3JpemFjaW9uXExvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Autorizacion/Registro.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0b3JpemFjaW9uXFJlZ2lzdHJvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Categoria.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Categorias.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Dashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Producto.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Productos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Tienda/Cart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGllbmRhXENhcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Tienda/Catalogo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGllbmRhXENhdGFsb2dvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Tienda/Detalle.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGllbmRhXERldGFsbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Usuario.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Pages/Usuarios.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Shared/LoginLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/WorkSpaceAD/YOUTUBE/103_SISTEMA ECOMMERCE BLAZOR NET 7/Subir/BlazorEcommerce/BlazorEcommerce/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

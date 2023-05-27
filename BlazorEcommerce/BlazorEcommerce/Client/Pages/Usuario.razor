@@ -1,0 +1,116 @@
+﻿@page "/usuario"
+@page "/usuario/{Id:int}"
+@inject IPersonaServicio _personaServicio
+@inject NavigationManager _navServicio
+@inject IToastService toastService
+@attribute [Authorize(Roles = "Usuario")]
+
+<div class="row justify-content-center  mt-3">
+    <p class="col-sm-12 col-md-8 col-xl-10 h4 mt-2">@titulo</p>
+</div>
+<div class="row justify-content-center  mt-3">
+    <div class="col-sm-12 col-md-8 col-xl-10">
+        <EditForm Model="modelo" OnValidSubmit="GuardarCambios">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-light" id="basic-addon3">Nombre Completo</span>
+                <input type="text" class="form-control" @bind-value="modelo.NombreCompleto">
+                <ValidationMessage For="@(()=>modelo.NombreCompleto)" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-light" id="basic-addon3">Correo</span>
+                <input type="text" class="form-control" @bind-value="modelo.Correo"><br />
+                <ValidationMessage For="@(()=>modelo.Correo)" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-light" id="basic-addon3">Contraseña</span>
+                <input type="password" class="form-control" @bind-value="modelo.Clave">
+                <ValidationMessage For="@(()=>modelo.Clave)" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-light" id="basic-addon3">Confirmar Contraseña</span>
+                <input type="password" class="form-control" @bind-value="modelo.ConfirmarClave">
+                <ValidationMessage For="@(()=>modelo.ConfirmarClave)" />
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary" style="width:130px">@boton</button>
+                <a href="/usuarios" class="btn btn-secondary" style="width:130px">Volver</a>
+            </div>
+        </EditForm>
+       
+
+    </div>
+
+</div>
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private string titulo = "Nuevo Usuario";
+    private string boton = "Crear";
+    private PersonaDTO modelo = new PersonaDTO();
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if(Id != 0)
+        {
+            titulo = "Editar Usuario";
+            boton = "Actualizar";
+
+            var response = await _personaServicio.Obtener(Id);
+            if (response.EsCorrecto!)
+            {
+                modelo = (PersonaDTO)response.Resultado!;
+                modelo.ConfirmarClave = modelo.Clave;
+            }
+            else
+                toastService.ShowWarning(response.Mensaje!);
+        }
+    }
+
+
+    private async Task GuardarCambios()
+    {
+        if(modelo.Clave != modelo.ConfirmarClave)
+        {
+            toastService.ShowWarning("Las contraseñas no coinciden");
+            return;
+        }
+
+        bool respuesta = true;
+        string mensaje = string.Empty;
+
+        if(Id != 0)
+        {
+            var response = await _personaServicio.Editar(modelo);
+            if (response.EsCorrecto)
+                mensaje = "Usuario fue modificado";
+            else
+            {
+                respuesta = false;
+                mensaje = "No se pudo editar";
+            }
+        }
+        else
+        {
+            modelo.Rol = "Usuario";
+            var response = await _personaServicio.Crear(modelo);
+            if (response.EsCorrecto)
+                mensaje = "Usuario fue creado";
+            else
+            {
+                respuesta = false;
+                mensaje = "No se pudo crear";
+            }
+        }
+
+        if (respuesta)
+        {
+            toastService.ShowSuccess(mensaje);
+            _navServicio.NavigateTo("/usuarios");
+        }else
+            toastService.ShowError(mensaje);
+    }
+
+}
